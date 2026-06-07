@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATTENDIFY</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Login Section -->
+    <div id="login-section" class="login-section">
+        <div class="login-container">
+            <h1>ATTENDIFY</h1>
+            <h2>Iniciar Sesión</h2>
+            <form id="login-form">
+                <input type="email" id="login-email" placeholder="Correo electrónico" required>
+                <input type="password" id="login-password" placeholder="Contraseña" required>
+                <button type="submit" class="login-btn">INICIAR SESIÓN</button>
+            </form>
+            <p id="login-error" class="error-message"></p>
+        </div>
+    </div>
+
+    <!-- Main Content (hidden until logged in) -->
+    <div id="main-content" class="container hidden">
+        <h1>ATTENDIFY</h1>
+        <div class="grid">
+            <a href="materia.html?subject=matematicas" class="materia">MATEMÁTICAS</a>
+            <a href="materia.html?subject=ciencias" class="materia">CIENCIAS NAT.</a>
+            <a href="materia.html?subject=lectura" class="materia">LECTURA</a>
+            <a href="materia.html?subject=ortografia" class="materia">ORTOGRAFÍA</a>
+            <a href="materia.html?subject=espanol_castellano" class="materia">ESPAÑOL CASTELLANO</a>
+            <a href="materia.html?subject=espanol_espana" class="materia">ESPAÑOL DE ESPAÑA</a>
+        </div>
+        <button id="profile-btn" class="profile-btn">PERFIL DEL ESTUDIANTE</button>
+        <button id="logout-btn" class="logout-btn">CERRAR SESIÓN</button>
+        <footer>by: oscar henriquez</footer>
+    </div>
+    <div id="profile-section" class="profile-section hidden">
+        <h2>PERFIL DEL ESTUDIANTE</h2>
+        <div class="profile-content">
+            <div class="user-info">
+                <h3 id="user-email"></h3>
+            </div>
+            <div class="total-points">
+                <h3>PUNTOS TOTALES</h3>
+                <div id="total-points-value" class="points-value">0</div>
+            </div>
+            <div class="general-average">
+                <h3>PROMEDIO GENERAL</h3>
+                <div id="general-average-value" class="average-value">-</div>
+            </div>
+            <div class="subject-averages">
+                <h3>PROMEDIOS POR MATERIA</h3>
+                <div id="subject-averages-container"></div>
+            </div>
+            <button id="close-profile-btn" class="close-btn">CERRAR</button>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+        import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+        import { getFirestore, doc, getDoc, collection, getDocs, query, where } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCwHs1FgL021Se5PH5T-dkZnnDRxYdZqXs",
+            authDomain: "attendify-b59b7.firebaseapp.com",
+            projectId: "attendify-b59b7",
+            storageBucket: "attendify-b59b7.firebasestorage.app",
+            messagingSenderId: "866459607875",
+            appId: "1:866459607875:web:dcbce887d1b738a0ee85f6",
+            measurementId: "G-TE3HVPWWTH"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // Make auth and db available globally
+        window.firebaseAuth = auth;
+        window.firebaseDb = db;
+
+        // Auth state observer
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                document.getElementById('login-section').classList.add('hidden');
+                document.getElementById('main-content').classList.remove('hidden');
+                document.getElementById('user-email').textContent = user.email;
+                loadUserProfile();
+            } else {
+                document.getElementById('login-section').classList.remove('hidden');
+                document.getElementById('main-content').classList.add('hidden');
+            }
+        });
+
+        // Login form handler
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            const errorElement = document.getElementById('login-error');
+
+            try {
+                await signInWithEmailAndPassword(auth, email, password);
+                errorElement.textContent = '';
+            } catch (error) {
+                if (error.code === 'auth/user-not-found') {
+                    errorElement.textContent = 'Usuario no encontrado';
+                } else if (error.code === 'auth/wrong-password') {
+                    errorElement.textContent = 'Contraseña incorrecta';
+                } else if (error.code === 'auth/user-disabled') {
+                    errorElement.textContent = 'Cuenta inhabilitada. Contacte al administrador.';
+                } else {
+                    errorElement.textContent = 'Error al iniciar sesión: ' + error.message;
+                }
+            }
+        });
+
+        // Logout handler
+        document.getElementById('logout-btn').addEventListener('click', async () => {
+            await signOut(auth);
+        });
+
+        // Load user profile data
+        async function loadUserProfile() {
+            const user = auth.currentUser;
+            if (!user) return;
+
+            try {
+                const userDoc = await getDoc(doc(db, 'users', user.uid));
+                if (userDoc.exists()) {
+                    const userData = userDoc.data();
+                    displayProfileData(userData);
+                }
+            } catch (error) {
+                console.error('Error loading user profile:', error);
+            }
+        }
+
+        // Display profile data
+        function displayProfileData(userData) {
+            // Calculate general average
+            const allResults = userData.quizResults || [];
+            if (allResults.length > 0) {
+                const totalPercentage = allResults.reduce((sum, result) => sum + result.percentage, 0);
+                const average = (totalPercentage / allResults.length).toFixed(1);
+                document.getElementById('general-average-value').textContent = average + '%';
+            }
+
+            // Calculate subject averages
+            const subjectAverages = {};
+            allResults.forEach(result => {
+                if (!subjectAverages[result.subject]) {
+                    subjectAverages[result.subject] = {
+                        totalPercentage: 0,
+                        count: 0
+                    };
+                }
+                subjectAverages[result.subject].totalPercentage += result.percentage;
+                subjectAverages[result.subject].count += 1;
+            });
+
+            const subjectAveragesContainer = document.getElementById('subject-averages-container');
+            subjectAveragesContainer.innerHTML = '';
+
+            const subjectNames = {
+                matematicas: 'MATEMÁTICAS',
+                ciencias: 'CIENCIAS NATURALES',
+                lectura: 'LECTURA',
+                programacion: 'PROGRAMACIÓN'
+            };
+
+            for (const subject in subjectAverages) {
+                const data = subjectAverages[subject];
+                const average = (data.totalPercentage / data.count).toFixed(1);
+                const subjectItem = document.createElement('div');
+                subjectItem.className = 'subject-average-item';
+                subjectItem.innerHTML = `
+                    <span class="subject-name">${subjectNames[subject] || subject}</span>
+                    <span class="subject-average">${average}%</span>
+                `;
+                subjectAveragesContainer.appendChild(subjectItem);
+            }
+
+            if (Object.keys(subjectAverages).length === 0) {
+                subjectAveragesContainer.innerHTML = '<p style="text-align: center; color: #666;">No hay evaluaciones registradas</p>';
+            }
+        }
+
+        // Profile button handler
+        document.getElementById('profile-btn').addEventListener('click', () => {
+            document.getElementById('profile-section').classList.remove('hidden');
+            loadUserProfile();
+        });
+
+        // Close profile handler
+        document.getElementById('close-profile-btn').addEventListener('click', () => {
+            document.getElementById('profile-section').classList.add('hidden');
+        });
+    </script>
+</body>
+</html>

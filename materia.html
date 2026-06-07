@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATTENDIFY - Materia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Login Section (redirect if not authenticated) -->
+    <div id="login-redirect" class="login-section hidden">
+        <div class="login-container">
+            <h1>ATTENDIFY</h1>
+            <h2>Inicia sesión para continuar</h2>
+            <a href="index.html" class="login-btn">IR A INICIAR SESIÓN</a>
+        </div>
+    </div>
+
+    <!-- Main Content (hidden until authenticated) -->
+    <div id="main-content" class="container hidden">
+        <div id="subject-header">
+            <a href="index.html" class="back-btn">← Volver</a>
+            <h1 id="subject-title"></h1>
+        </div>
+        
+        <div id="menu-section" class="menu-section">
+            <button class="action-btn primary" onclick="showTopicSelection()">
+                <span class="icon">Hacer prueba</span>
+            </button>
+            <button class="action-btn secondary" onclick="showStudyMaterial()">
+                <span class="icon">Ver material de estudio</span>
+            </button>
+        </div>
+
+        <div id="topic-selection-section" class="topic-selection-section hidden">
+            <h2>Selecciona los temas a evaluar</h2>
+            <div id="topics-container" class="topics-container"></div>
+            <div class="topic-actions">
+                <button class="action-btn secondary" onclick="selectAllTopics()">
+                    <span class="icon">Seleccionar todos</span>
+                </button>
+                <button class="action-btn secondary" onclick="deselectAllTopics()">
+                    <span class="icon">Deseleccionar todos</span>
+                </button>
+            </div>
+            <div class="question-count-section">
+                <label for="question-count">Numero de preguntas (max 50):</label>
+                <input type="number" id="question-count" min="1" max="50" value="10">
+            </div>
+            <button class="action-btn primary" onclick="startQuizWithTopics()">
+                <span class="icon">Comenzar prueba</span>
+            </button>
+            <button class="action-btn secondary" onclick="backToMenu()">
+                <span class="icon">Volver al menú</span>
+            </button>
+        </div>
+
+        <div id="quiz-section" class="quiz-section hidden">
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+                <span id="progress-text">1/10</span>
+            </div>
+            
+            <div id="question-container">
+                <h2 id="question-text"></h2>
+                <div id="options-container" class="options-container"></div>
+            </div>
+        </div>
+
+        <div id="result-section" class="result-section hidden">
+            <div class="result-card">
+                <h2>Prueba completada</h2>
+                <div class="score-display">
+                    <span id="score-text">0/10</span>
+                </div>
+                <p id="score-message"></p>
+                <button class="action-btn primary" onclick="restartQuiz()">
+                    <span class="icon">Intentar de nuevo</span>
+                </button>
+                <button class="action-btn secondary" onclick="backToMenu()">
+                    <span class="icon">Volver al menú</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="study-section" class="study-section hidden">
+            <div class="study-content">
+                <h2>Material de Estudio</h2>
+                <div id="study-text"></div>
+                <button class="action-btn secondary" onclick="backToMenu()">
+                    <span class="icon">Volver al menú</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+        import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+        import { getFirestore, doc, getDoc, setDoc, updateDoc, arrayUnion } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCwHs1FgL021Se5PH5T-dkZnnDRxYdZqXs",
+            authDomain: "attendify-b59b7.firebaseapp.com",
+            projectId: "attendify-b59b7",
+            storageBucket: "attendify-b59b7.firebasestorage.app",
+            messagingSenderId: "866459607875",
+            appId: "1:866459607875:web:dcbce887d1b738a0ee85f6",
+            measurementId: "G-TE3HVPWWTH"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // Make auth and db available globally
+        window.firebaseAuth = auth;
+        window.firebaseDb = db;
+
+        // Auth state observer
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                document.getElementById('login-redirect').classList.add('hidden');
+                document.getElementById('main-content').classList.remove('hidden');
+            } else {
+                document.getElementById('login-redirect').classList.remove('hidden');
+                document.getElementById('main-content').classList.add('hidden');
+            }
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
