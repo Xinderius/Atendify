@@ -13,6 +13,49 @@ body {
     align-items: center;
     justify-content: center;
     padding: 20px;
+    overflow: hidden;
+    position: relative;
+    max-width: 100vw;
+    max-height: 100vh;
+}
+
+.smoke-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+}
+
+.smoke-particle {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 100, 255, 0.3) 0%, rgba(0, 150, 255, 0.1) 50%, transparent 70%);
+    filter: blur(40px);
+    animation: float 20s infinite ease-in-out;
+    pointer-events: none;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.5;
+    }
+    25% {
+        transform: translate(50px, -50px) scale(1.2);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translate(-30px, -80px) scale(0.9);
+        opacity: 0.4;
+    }
+    75% {
+        transform: translate(-60px, -30px) scale(1.1);
+        opacity: 0.6;
+    }
 }
 
 .container {
@@ -23,7 +66,12 @@ body {
     text-align: center;
     width: 90%;
     max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
     animation: fadeIn 0.5s ease-in;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 @keyframes fadeIn {
@@ -35,6 +83,52 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+}
+
+.home-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: #0078d7;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.home-link:hover {
+    color: #005a9e;
+}
+
+.home-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.logout-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.logout-btn:hover {
+    background: #c82333;
+    transform: translateY(-2px);
 }
 
 h1 {
