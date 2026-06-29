@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Smoke Background -->
+    <div id="smoke-background" class="smoke-background"></div>
+    
     <!-- Login Section -->
     <div id="login-section" class="login-section">
         <div class="login-container">
@@ -23,39 +26,25 @@
 
     <!-- Main Content (hidden until logged in) -->
     <div id="main-content" class="container hidden">
+        <header class="main-header">
+            <a href="index.html" class="home-link">
+                <svg class="home-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                <span>Home</span>
+            </a>
+            <button id="logout-btn" class="logout-btn">CERRAR SESIÓN</button>
+        </header>
         <h1>ATTENDIFY</h1>
         <div class="grid">
             <a href="materia.html?subject=matematicas" class="materia">MATEMÁTICAS</a>
+            <a href="materia.html?subject=ingles" class="materia">ENGLISH</a>
             <a href="materia.html?subject=ciencias" class="materia">CIENCIAS NAT.</a>
             <a href="materia.html?subject=lectura" class="materia">LECTURA</a>
             <a href="materia.html?subject=ortografia" class="materia">ORTOGRAFÍA</a>
-            <a href="materia.html?subject=espanol_castellano" class="materia">ESPAÑOL CASTELLANO</a>
-            <a href="materia.html?subject=espanol_espana" class="materia">ESPAÑOL DE ESPAÑA</a>
         </div>
-        <button id="profile-btn" class="profile-btn">PERFIL DEL ESTUDIANTE</button>
-        <button id="logout-btn" class="logout-btn">CERRAR SESIÓN</button>
         <footer>by: oscar henriquez</footer>
-    </div>
-    <div id="profile-section" class="profile-section hidden">
-        <h2>PERFIL DEL ESTUDIANTE</h2>
-        <div class="profile-content">
-            <div class="user-info">
-                <h3 id="user-email"></h3>
-            </div>
-            <div class="total-points">
-                <h3>PUNTOS TOTALES</h3>
-                <div id="total-points-value" class="points-value">0</div>
-            </div>
-            <div class="general-average">
-                <h3>PROMEDIO GENERAL</h3>
-                <div id="general-average-value" class="average-value">-</div>
-            </div>
-            <div class="subject-averages">
-                <h3>PROMEDIOS POR MATERIA</h3>
-                <div id="subject-averages-container"></div>
-            </div>
-            <button id="close-profile-btn" class="close-btn">CERRAR</button>
-        </div>
     </div>
 
     <!-- Firebase SDK -->
@@ -89,8 +78,6 @@
             if (user) {
                 document.getElementById('login-section').classList.add('hidden');
                 document.getElementById('main-content').classList.remove('hidden');
-                document.getElementById('user-email').textContent = user.email;
-                loadUserProfile();
             } else {
                 document.getElementById('login-section').classList.remove('hidden');
                 document.getElementById('main-content').classList.add('hidden');
@@ -125,82 +112,77 @@
             await signOut(auth);
         });
 
-        // Load user profile data
-        async function loadUserProfile() {
-            const user = auth.currentUser;
-            if (!user) return;
+        // Smoke Background Animation
+        const smokeBackground = document.getElementById('smoke-background');
+        const particleCount = 15;
+        const particles = [];
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let isOverInteractive = false;
 
-            try {
-                const userDoc = await getDoc(doc(db, 'users', user.uid));
-                if (userDoc.exists()) {
-                    const userData = userDoc.data();
-                    displayProfileData(userData);
-                }
-            } catch (error) {
-                console.error('Error loading user profile:', error);
+        // Create smoke particles
+        function createParticles() {
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'smoke-particle';
+                
+                const size = Math.random() * 300 + 200;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+                
+                smokeBackground.appendChild(particle);
+                particles.push({
+                    element: particle,
+                    baseX: parseFloat(particle.style.left),
+                    baseY: parseFloat(particle.style.top),
+                    speed: Math.random() * 0.5 + 0.2
+                });
             }
         }
 
-        // Display profile data
-        function displayProfileData(userData) {
-            // Calculate general average
-            const allResults = userData.quizResults || [];
-            if (allResults.length > 0) {
-                const totalPercentage = allResults.reduce((sum, result) => sum + result.percentage, 0);
-                const average = (totalPercentage / allResults.length).toFixed(1);
-                document.getElementById('general-average-value').textContent = average + '%';
-            }
-
-            // Calculate subject averages
-            const subjectAverages = {};
-            allResults.forEach(result => {
-                if (!subjectAverages[result.subject]) {
-                    subjectAverages[result.subject] = {
-                        totalPercentage: 0,
-                        count: 0
-                    };
+        // Check if mouse is over interactive elements
+        function checkInteractiveElements(e) {
+            const interactiveElements = document.querySelectorAll('a, button, input, .container, .materia');
+            isOverInteractive = false;
+            
+            interactiveElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (e.clientX >= rect.left && e.clientX <= rect.right &&
+                    e.clientY >= rect.top && e.clientY <= rect.bottom) {
+                    isOverInteractive = true;
                 }
-                subjectAverages[result.subject].totalPercentage += result.percentage;
-                subjectAverages[result.subject].count += 1;
             });
-
-            const subjectAveragesContainer = document.getElementById('subject-averages-container');
-            subjectAveragesContainer.innerHTML = '';
-
-            const subjectNames = {
-                matematicas: 'MATEMÁTICAS',
-                ciencias: 'CIENCIAS NATURALES',
-                lectura: 'LECTURA',
-                programacion: 'PROGRAMACIÓN'
-            };
-
-            for (const subject in subjectAverages) {
-                const data = subjectAverages[subject];
-                const average = (data.totalPercentage / data.count).toFixed(1);
-                const subjectItem = document.createElement('div');
-                subjectItem.className = 'subject-average-item';
-                subjectItem.innerHTML = `
-                    <span class="subject-name">${subjectNames[subject] || subject}</span>
-                    <span class="subject-average">${average}%</span>
-                `;
-                subjectAveragesContainer.appendChild(subjectItem);
-            }
-
-            if (Object.keys(subjectAverages).length === 0) {
-                subjectAveragesContainer.innerHTML = '<p style="text-align: center; color: #666;">No hay evaluaciones registradas</p>';
-            }
         }
 
-        // Profile button handler
-        document.getElementById('profile-btn').addEventListener('click', () => {
-            document.getElementById('profile-section').classList.remove('hidden');
-            loadUserProfile();
+        // Mouse movement handler
+        document.addEventListener('mousemove', (e) => {
+            checkInteractiveElements(e);
+            if (!isOverInteractive) {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            }
         });
 
-        // Close profile handler
-        document.getElementById('close-profile-btn').addEventListener('click', () => {
-            document.getElementById('profile-section').classList.add('hidden');
-        });
+        // Animate particles
+        function animateParticles() {
+            particles.forEach(particle => {
+                const dx = (mouseX - window.innerWidth / 2) * particle.speed * 0.1;
+                const dy = (mouseY - window.innerHeight / 2) * particle.speed * 0.1;
+                
+                particle.element.style.transform = `translate(${dx}px, ${dy}px)`;
+            });
+            requestAnimationFrame(animateParticles);
+        }
+
+        // Initialize
+        createParticles();
+        animateParticles();
+
+        // Firebase SDK
     </script>
 </body>
 </html>
