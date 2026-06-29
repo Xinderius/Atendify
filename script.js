@@ -48,29 +48,17 @@ const subjectTopics = {
         "Palabras Homófonas",
         "Errores Comunes"
     ],
-    espanol_castellano: [
-        "Fonética y Fonología",
-        "Morfología",
-        "Sintaxis",
-        "Semántica",
-        "Léxico",
-        "Oración Simple",
-        "Oración Compuesta",
-        "Categorías Gramaticales",
-        "Estructura del Texto",
-        "Variedades del Español"
-    ],
-    espanol_espana: [
-        "Español Peninsular",
-        "Dialectos Regionales",
-        "Vocabulario Español",
-        "Expresiones Idiomáticas",
-        "Literatura Española",
-        "Cultura y Tradiciones",
-        "Historia de la Lengua",
-        "Normativa RAE",
-        "Uso Coloquial",
-        "Diferencias con Latinoamérica"
+    ingles: [
+        "Grammar",
+        "Vocabulary",
+        "Reading Comprehension",
+        "Listening Skills",
+        "Writing",
+        "Speaking",
+        "Verb Tenses",
+        "Prepositions",
+        "Pronunciation",
+        "Idioms and Phrases"
     ]
 };
 
@@ -893,10 +881,10 @@ const questionDatabase = {
         { question: "¿Cuál es la forma correcta de 'de hecho'?", options: ["de hecho", "dehecho", "de hècho", "de hecho"], correct: 0, topic: "Errores Comunes" },
         { question: "¿Cuál es la forma correcta de 'en realidad'?", options: ["en realidad", "enrealidad", "en realidàd", "en realidat"], correct: 0, topic: "Errores Comunes" }
     ],
-    espanol_castellano: [
-        // Fonética y Fonología - 15 preguntas
-        { question: "¿Qué es la fonética?", options: ["Estudio de sonidos", "Estudio de letras", "Estudio de palabras", "Estudio de frases"], correct: 0, topic: "Fonética y Fonología" },
-        { question: "¿Qué es la fonología?", options: ["Estudio de fonemas", "Estudio de letras", "Estudio de palabras", "Estudio de frases"], correct: 0, topic: "Fonética y Fonología" },
+    ingles: [
+        // Grammar - 15 preguntas
+        { question: "What is the past tense of 'eat'?", options: ["ate", "eated", "eaten", "eating"], correct: 0, topic: "Grammar" },
+        { question: "Which sentence is correct?", options: ["She goes to school", "She go to school", "She going to school", "She gone to school"], correct: 0, topic: "Grammar" },
         { question: "¿Cuántas vocales tiene el español?", options: ["5", "6", "7", "8"], correct: 0, topic: "Fonética y Fonología" },
         { question: "¿Qué es un diptongo?", options: ["Dos vocales en una sílaba", "Una vocal sola", "Tres vocales", "Cuatro vocales"], correct: 0, topic: "Fonética y Fonología" },
         { question: "¿Qué es un triptongo?", options: ["Tres vocales en una sílaba", "Dos vocales", "Una vocal", "Cuatro vocales"], correct: 0, topic: "Fonética y Fonología" },
@@ -1234,6 +1222,177 @@ const questionDatabase = {
         { question: "¿Qué diferencia hay en 'tortilla'?", options: ["Tortilla de patatas en España, tortilla de maíz en LatAm", "Tortilla de harina en LatAm", "Tortilla de trigo en LatAm", "Tortilla de arroz en LatAm"], correct: 0, topic: "Diferencias con Latinoamérica" },
         { question: "¿Qué diferencia hay en el voseo?", options: ["Uso de vos en LatAm", "Uso de tú en España", "Uso de usted en ambos", "Sin pronombre"], correct: 0, topic: "Diferencias con Latinoamérica" },
         { question: "¿Qué diferencia hay en el ceceo?", options: ["Pronunciación en España", "Pronunciación en LatAm", "Sin pronunciación", "Pronunciación igual"], correct: 0, topic: "Diferencias con Latinoamérica" }
+    ],
+    ingles: [
+        // Grammar - 15 preguntas
+        { question: "What is the past tense of 'eat'?", options: ["ate", "eated", "eaten", "eating"], correct: 0, topic: "Grammar" },
+        { question: "Which sentence is correct?", options: ["She goes to school", "She go to school", "She going to school", "She gone to school"], correct: 0, topic: "Grammar" },
+        { question: "What is the plural of 'child'?", options: ["children", "childs", "childes", "childrens"], correct: 0, topic: "Grammar" },
+        { question: "Which article should be used with 'university'?", options: ["a", "an", "the", "no article"], correct: 0, topic: "Grammar" },
+        { question: "What is the comparative form of 'good'?", options: ["better", "gooder", "more good", "best"], correct: 0, topic: "Grammar" },
+        { question: "Which sentence uses the present perfect correctly?", options: ["I have visited Paris", "I visited Paris", "I am visiting Paris", "I will visit Paris"], correct: 0, topic: "Grammar" },
+        { question: "What is the opposite of 'always'?", options: ["never", "sometimes", "often", "usually"], correct: 0, topic: "Grammar" },
+        { question: "Which word is a preposition?", options: ["under", "run", "happy", "quickly"], correct: 0, topic: "Grammar" },
+        { question: "What is the superlative of 'beautiful'?", options: ["most beautiful", "beautifuler", "more beautiful", "beautifulest"], correct: 0, topic: "Grammar" },
+        { question: "Which sentence is in passive voice?", options: ["The book was written by John", "John wrote the book", "John is writing the book", "John has written the book"], correct: 0, topic: "Grammar" },
+        { question: "What type of noun is 'happiness'?", options: ["Abstract", "Concrete", "Proper", "Collective"], correct: 0, topic: "Grammar" },
+        { question: "Which pronoun should replace 'John and Mary'?", options: ["they", "them", "he", "she"], correct: 0, topic: "Grammar" },
+        { question: "What is the past participle of 'write'?", options: ["written", "wrote", "writing", "writed"], correct: 0, topic: "Grammar" },
+        { question: "Which sentence uses 'much' correctly?", options: ["There is much water", "There is much apples", "There is much books", "There is much cars"], correct: 0, topic: "Grammar" },
+        { question: "What is the conditional form of 'will'?", options: ["would", "will", "shall", "should"], correct: 0, topic: "Grammar" },
+
+        // Vocabulary - 15 preguntas
+        { question: "What does 'abundant' mean?", options: ["Plentiful", "Scarce", "Small", "Empty"], correct: 0, topic: "Vocabulary" },
+        { question: "What is a synonym for 'happy'?", options: ["Joyful", "Sad", "Angry", "Tired"], correct: 0, topic: "Vocabulary" },
+        { question: "What does 'benevolent' mean?", options: ["Kind", "Cruel", "Mean", "Harsh"], correct: 0, topic: "Vocabulary" },
+        { question: "What is the antonym of 'ancient'?", options: ["Modern", "Old", "Historic", "Traditional"], correct: 0, topic: "Vocabulary" },
+        { question: "What does 'diligent' mean?", options: ["Hardworking", "Lazy", "Careless", "Slow"], correct: 0, topic: "Vocabulary" },
+        { question: "What is a synonym for 'beautiful'?", options: ["Gorgeous", "Ugly", "Plain", "Dull"], correct: 0, topic: "Vocabulary" },
+        { question: "What does 'eloquent' mean?", options: ["Fluent", "Quiet", "Shy", "Silent"], correct: 0, topic: "Vocabulary" },
+        { question: "What is the antonym of 'generous'?", options: ["Stingy", "Kind", "Giving", "Charitable"], correct: 0, topic: "Vocabulary" },
+        { question: "What does 'meticulous' mean?", options: ["Careful", "Careless", "Fast", "Slow"], correct: 0, topic: "Vocabulary" },
+        { question: "What is a synonym for 'intelligent'?", options: ["Smart", "Stupid", "Ignorant", "Foolish"], correct: 0, topic: "Vocabulary" },
+        { question: "What does 'pragmatic' mean?", options: ["Practical", "Idealistic", "Dreamy", "Unrealistic"], correct: 0, topic: "Vocabulary" },
+        { question: "What is the antonym of 'optimistic'?", options: ["Pessimistic", "Hopeful", "Positive", "Cheerful"], correct: 0, topic: "Vocabulary" },
+        { question: "What does 'resilient' mean?", options: ["Strong", "Weak", "Fragile", "Delicate"], correct: 0, topic: "Vocabulary" },
+        { question: "What is a synonym for 'courageous'?", options: ["Brave", "Cowardly", "Fearful", "Timid"], correct: 0, topic: "Vocabulary" },
+        { question: "What does 'versatile' mean?", options: ["Adaptable", "Rigid", "Fixed", "Limited"], correct: 0, topic: "Vocabulary" },
+
+        // Reading Comprehension - 15 preguntas
+        { question: "READING: 'The sun rises in the east and sets in the west. It provides light and warmth to Earth.' Where does the sun rise?", options: ["East", "West", "North", "South"], correct: 0, topic: "Reading Comprehension" },
+        { question: "READING: 'Water covers about 71% of Earth's surface. It is essential for all living things.' What percentage of Earth is covered by water?", options: ["71%", "50%", "80%", "60%"], correct: 0, topic: "Reading Comprehension" },
+        { question: "READING: 'Photosynthesis is the process by which plants make food using sunlight.' What do plants use in photosynthesis?", options: ["Sunlight", "Moonlight", "Artificial light", "No light"], correct: 0, topic: "Reading Comprehension" },
+        { question: "READING: 'The heart pumps blood throughout the body. It beats about 100,000 times per day.' How many times does the heart beat per day?", options: ["100,000", "10,000", "1,000", "1,000,000"], correct: 0, topic: "Reading Comprehension" },
+        { question: "READING: 'Mount Everest is the highest mountain in the world. It is 8,848 meters tall.' How tall is Mount Everest?", options: ["8,848 meters", "8,000 meters", "9,000 meters", "8,500 meters"], correct: 0, topic: "Reading Comprehension" },
+        { question: "READING: 'The Great Wall of China is over 13,000 miles long. It was built to protect China from invaders.' Why was the Great Wall built?", options: ["Protection", "Tourism", "Exercise", "Art"], correct: 0, topic: "Reading Comprehension" },
+        { question: "READING: 'Dolphins are highly intelligent marine mammals. They can communicate with each other using sounds.' What are dolphins?", options: ["Marine mammals", "Fish", "Birds", "Reptiles"], correct: 0, topic: "Reading Comprehension" },
+        { question: "READING: 'The Amazon rainforest produces about 20% of the world's oxygen. It is home to millions of species.' What does the Amazon produce?", options: ["Oxygen", "Carbon dioxide", "Nitrogen", "Hydrogen"], correct: 0, topic: "Reading Comprehension" },
+        { question: "READING: 'The moon orbits Earth every 27.3 days. It causes ocean tides through gravitational pull.' How long does it take the moon to orbit Earth?", options: ["27.3 days", "30 days", "15 days", "365 days"], correct: 0, topic: "Reading Comprehension" },
+        { question: "READING: 'Bees are important pollinators. They help plants reproduce by transferring pollen between flowers.' What do bees do?", options: ["Pollinate", "Kill plants", "Eat flowers", "Destroy pollen"], correct: 0, topic: "Reading Comprehension" },
+        { question: "READING: 'The human brain has about 86 billion neurons. It controls all body functions and thoughts.' How many neurons does the brain have?", options: ["86 billion", "100 billion", "50 billion", "1 billion"], correct: 0, topic: "Reading Comprehension" },
+        { question: "READING: 'Volcanoes form when magma erupts through Earth's crust. They can create new land formations.' What causes volcanoes?", options: ["Magma eruption", "Water", "Wind", "Ice"], correct: 0, topic: "Reading Comprehension" },
+        { question: "READING: 'Antarctica is the coldest continent on Earth. It contains 90% of the world's ice.' What is special about Antarctica?", options: ["Coldest continent", "Hottest continent", "Largest continent", "Smallest continent"], correct: 0, topic: "Reading Comprehension" },
+        { question: "READING: 'The Internet connects billions of devices worldwide. It allows instant communication and information sharing.' What does the Internet do?", options: ["Connects devices", "Disconnects devices", "Only sends emails", "Only plays games"], correct: 0, topic: "Reading Comprehension" },
+        { question: "READING: 'Bats are the only mammals capable of true flight. They use echolocation to navigate in the dark.' What makes bats unique?", options: ["True flight", "Cannot fly", "Are birds", "Are insects"], correct: 0, topic: "Reading Comprehension" },
+
+        // Verb Tenses - 15 preguntas
+        { question: "What is the present continuous of 'run'?", options: ["running", "runs", "ran", "run"], correct: 0, topic: "Verb Tenses" },
+        { question: "Which sentence is in past simple?", options: ["I visited my grandmother", "I visit my grandmother", "I am visiting my grandmother", "I will visit my grandmother"], correct: 0, topic: "Verb Tenses" },
+        { question: "What is the future simple of 'go'?", options: ["will go", "goes", "went", "going"], correct: 0, topic: "Verb Tenses" },
+        { question: "Which sentence uses present perfect?", options: ["I have finished my homework", "I finished my homework", "I am finishing my homework", "I finish my homework"], correct: 0, topic: "Verb Tenses" },
+        { question: "What is the past continuous of 'study'?", options: ["was/were studying", "studied", "studies", "study"], correct: 0, topic: "Verb Tenses" },
+        { question: "Which sentence is in future continuous?", options: ["I will be working tomorrow", "I work tomorrow", "I worked tomorrow", "I am working tomorrow"], correct: 0, topic: "Verb Tenses" },
+        { question: "What is the past perfect of 'eat'?", options: ["had eaten", "ate", "have eaten", "was eating"], correct: 0, topic: "Verb Tenses" },
+        { question: "Which sentence uses present simple correctly?", options: ["She works every day", "She working every day", "She worked every day", "She will work every day"], correct: 0, topic: "Verb Tenses" },
+        { question: "What is the future perfect of 'complete'?", options: ["will have completed", "will complete", "completed", "completes"], correct: 0, topic: "Verb Tenses" },
+        { question: "Which sentence is in present perfect continuous?", options: ["I have been studying for hours", "I study for hours", "I studied for hours", "I am studying for hours"], correct: 0, topic: "Verb Tenses" },
+        { question: "What is the third form (past participle) of 'sing'?", options: ["sung", "sang", "singed", "singing"], correct: 0, topic: "Verb Tenses" },
+        { question: "Which tense is used for actions happening now?", options: ["Present continuous", "Past simple", "Future simple", "Present perfect"], correct: 0, topic: "Verb Tenses" },
+        { question: "What is the second form (past simple) of 'buy'?", options: ["bought", "buyed", "boughten", "buying"], correct: 0, topic: "Verb Tenses" },
+        { question: "Which tense is used for completed past actions?", options: ["Past simple", "Present simple", "Future simple", "Present continuous"], correct: 0, topic: "Verb Tenses" },
+        { question: "What is the first form (base form) of 'was'?", options: ["be", "am", "is", "were"], correct: 0, topic: "Verb Tenses" },
+
+        // Prepositions - 15 preguntas
+        { question: "The cat is ___ the table.", options: ["under", "at", "on", "in"], correct: 0, topic: "Prepositions" },
+        { question: "I will meet you ___ 5 PM.", options: ["at", "on", "in", "to"], correct: 0, topic: "Prepositions" },
+        { question: "The book is ___ the shelf.", options: ["on", "at", "in", "to"], correct: 0, topic: "Prepositions" },
+        { question: "She lives ___ New York.", options: ["in", "at", "on", "to"], correct: 0, topic: "Prepositions" },
+        { question: "We arrived ___ the station.", options: ["at", "on", "in", "to"], correct: 0, topic: "Prepositions" },
+        { question: "The picture is ___ the wall.", options: ["on", "at", "in", "to"], correct: 0, topic: "Prepositions" },
+        { question: "I was born ___ 1990.", options: ["in", "on", "at", "to"], correct: 0, topic: "Prepositions" },
+        { question: "The plane flew ___ the clouds.", options: ["above", "at", "on", "in"], correct: 0, topic: "Prepositions" },
+        { question: "He is good ___ mathematics.", options: ["at", "on", "in", "to"], correct: 0, topic: "Prepositions" },
+        { question: "The dog jumped ___ the water.", options: ["into", "in", "at", "on"], correct: 0, topic: "Prepositions" },
+        { question: "We walked ___ the forest.", options: ["through", "at", "on", "in"], correct: 0, topic: "Prepositions" },
+        { question: "The store is ___ the bank and the pharmacy.", options: ["between", "at", "on", "in"], correct: 0, topic: "Prepositions" },
+        { question: "She is interested ___ learning languages.", options: ["in", "at", "on", "to"], correct: 0, topic: "Prepositions" },
+        { question: "The car is parked ___ the house.", options: ["in front of", "at", "on", "in"], correct: 0, topic: "Prepositions" },
+        { question: "I agree ___ your opinion.", options: ["with", "at", "on", "in"], correct: 0, topic: "Prepositions" },
+
+        // Idioms and Phrases - 15 preguntas
+        { question: "What does 'break a leg' mean?", options: ["Good luck", "Bad luck", "Break your leg", "Run fast"], correct: 0, topic: "Idioms and Phrases" },
+        { question: "What does 'piece of cake' mean?", options: ["Very easy", "Very hard", "Delicious", "Sweet"], correct: 0, topic: "Idioms and Phrases" },
+        { question: "What does 'under the weather' mean?", options: ["Sick", "Outside", "Happy", "Angry"], correct: 0, topic: "Idioms and Phrases" },
+        { question: "What does 'hit the sack' mean?", options: ["Go to sleep", "Hit something", "Wake up", "Exercise"], correct: 0, topic: "Idioms and Phrases" },
+        { question: "What does 'cost an arm and a leg' mean?", options: ["Very expensive", "Very cheap", "Free", "Painful"], correct: 0, topic: "Idioms and Phrases" },
+        { question: "What does 'once in a blue moon' Mean?", options: ["Rarely", "Often", "Every day", "Never"], correct: 0, topic: "Idioms and Phrases" },
+        { question: "What does 'spill the beans' mean?", options: ["Reveal a secret", "Drop food", "Cook beans", "Eat beans"], correct: 0, topic: "Idioms and Phrases" },
+        { question: "What does 'cold feet' mean?", options: ["Nervous", "Cold temperature", "Happy", "Brave"], correct: 0, topic: "Idioms and Phrases" },
+        { question: "What does 'bite the bullet' mean?", options: ["Face difficulty", "Eat something", "Run away", "Give up"], correct: 0, topic: "Idioms and Phrases" },
+        { question: "What does 'let the cat out of the bag' mean?", options: ["Reveal secret", "Release a cat", "Hide something", "Buy a cat"], correct: 0, topic: "Idioms and Phrases" },
+        { question: "What does 'burn the midnight oil' mean?", options: ["Work late", "Start a fire", "Sleep early", "Wake up early"], correct: 0, topic: "Idioms and Phrases" },
+        { question: "What does 'cut corners' mean?", options: ["Do something cheaply", "Cut something", "Work hard", "Spend money"], correct: 0, topic: "Idioms and Phrases" },
+        { question: "What does 'hit the nail on the head' mean?", options: ["Be exactly right", "Hit something", "Make a mistake", "Be wrong"], correct: 0, topic: "Idioms and Phrases" },
+        { question: "What does 'call it a day' mean?", options: ["Stop working", "Start working", "Call someone", "Make a call"], correct: 0, topic: "Idioms and Phrases" },
+        { question: "What does 'go the extra mile' mean?", options: ["Make extra effort", "Walk far", "Drive a car", "Run a race"], correct: 0, topic: "Idioms and Phrases" },
+
+        // Writing - 15 preguntas
+        { question: "Which is a complete sentence?", options: ["The sun shines brightly.", "Shines brightly.", "Because the sun.", "The sun."], correct: 0, topic: "Writing" },
+        { question: "What should you use to connect two independent clauses?", options: ["Semicolon or conjunction", "Comma only", "Period only", "No punctuation"], correct: 0, topic: "Writing" },
+        { question: "Which is a compound sentence?", options: ["I like coffee, and she likes tea.", "I like coffee.", "Because I like coffee.", "I like coffee she likes tea."], correct: 0, topic: "Writing" },
+        { question: "What is the purpose of a topic sentence?", options: ["Introduce main idea", "Conclude paragraph", "Add details", "Ask question"], correct: 0, topic: "Writing" },
+        { question: "Which word is a transition word?", options: ["However", "Cat", "Run", "Beautiful"], correct: 0, topic: "Writing" },
+        { question: "What should a conclusion do?", options: ["Summarize main points", "Introduce new ideas", "Ask questions", "Start new topic"], correct: 0, topic: "Writing" },
+        { question: "Which is a complex sentence?", options: ["Because it rained, we stayed home.", "It rained and we stayed home.", "It rained.", "We stayed home."], correct: 0, topic: "Writing" },
+        { question: "What is paragraph unity?", options: ["All sentences support main idea", "Many different ideas", "No main idea", "Random sentences"], correct: 0, topic: "Writing" },
+        { question: "Which is a formal writing style?", options: ["The experiment was conducted.", "The experiment was done.", "We did the experiment.", "The experiment happened."], correct: 0, topic: "Writing" },
+        { question: "What is coherence in writing?", options: ["Logical flow of ideas", "Random ideas", "No connection", "Confusing ideas"], correct: 0, topic: "Writing" },
+        { question: "Which punctuation ends a declarative sentence?", options: ["Period", "Comma", "Question mark", "Exclamation point"], correct: 0, topic: "Writing" },
+        { question: "What is a thesis statement?", options: ["Main argument of essay", "First sentence", "Last sentence", "Question"], correct: 0, topic: "Writing" },
+        { question: "Which is a fragment?", options: ["Because I was tired.", "I was tired.", "I slept because I was tired.", "When I was tired, I slept."], correct: 0, topic: "Writing" },
+        { question: "What is parallel structure?", options: ["Consistent grammatical pattern", "Different patterns", "Random structure", "No structure"], correct: 0, topic: "Writing" },
+        { question: "Which is an informal writing style?", options: ["Hey, what's up?", "Dear Sir,", "To whom it may concern,", "Greetings,"], correct: 0, topic: "Writing" },
+
+        // Speaking - 15 preguntas
+        { question: "What is important for clear speaking?", options: ["Pronunciation and clarity", "Speaking fast", "Speaking quietly", "Mumbling"], correct: 0, topic: "Speaking" },
+        { question: "What is intonation?", options: ["Rise and fall of voice", "Volume", "Speed", "Accent"], correct: 0, topic: "Speaking" },
+        { question: "What helps with fluency?", options: ["Practice regularly", "Study grammar only", "Memorize words", "Read silently"], correct: 0, topic: "Speaking" },
+        { question: "What is a filler word?", options: ["Um, uh, like", "Important words", "Content words", "Formal words"], correct: 0, topic: "Speaking" },
+        { question: "What is stress in speaking?", options: ["Emphasis on certain words", "Being nervous", "Speaking loudly", "Speaking softly"], correct: 0, topic: "Speaking" },
+        { question: "What is body language?", options: ["Non-verbal communication", "Speaking loudly", "Grammar", "Vocabulary"], correct: 0, topic: "Speaking" },
+        { question: "What is eye contact important for?", options: ["Connection with listener", "Looking away", "Closing eyes", "Sleeping"], correct: 0, topic: "Speaking" },
+        { question: "What is a conversation starter?", options: ["Opening question", "Closing statement", "Argument", "Complaint"], correct: 0, topic: "Speaking" },
+        { question: "What helps with pronunciation?", options: ["Listening and repeating", "Reading silently", "Writing words", "Memorizing definitions"], correct: 0, topic: "Speaking" },
+        { question: "What is active listening?", options: ["Paying full attention", "Hearing only", "Ignoring speaker", "Thinking about other things"], correct: 0, topic: "Speaking" },
+        { question: "What is pausing used for?", options: ["Emphasis and clarity", "Wasting time", "Being confused", "Being nervous"], correct: 0, topic: "Speaking" },
+        { question: "What is tone of voice?", options: ["Attitude expressed", "Volume only", "Speed only", "Accent only"], correct: 0, topic: "Speaking" },
+        { question: "What is a discourse marker?", options: ["Words like 'however', 'therefore'", "Content words", "Filler words", "Grammar words"], correct: 0, topic: "Speaking" },
+        { question: "What helps reduce speaking anxiety?", options: ["Preparation and practice", "Avoiding speaking", "Speaking fast", "Memorizing everything"], correct: 0, topic: "Speaking" },
+        { question: "What is paraphrasing?", options: ["Restating in different words", "Repeating exactly", "Changing meaning", "Ignoring"], correct: 0, topic: "Speaking" },
+
+        // Listening Skills - 15 preguntas
+        { question: "What is active listening?", options: ["Focusing completely on speaker", "Hearing without attention", "Multitasking", "Daydreaming"], correct: 0, topic: "Listening Skills" },
+        { question: "What helps with listening comprehension?", options: ["Focus and practice", "Distraction", "Talking", "Sleeping"], correct: 0, topic: "Listening Skills" },
+        { question: "What is a key word in listening?", options: ["Important word for meaning", "Unimportant word", "Filler word", "Grammar word"], correct: 0, topic: "Listening Skills" },
+        { question: "What is context in listening?", options: ["Situation or background", "Random information", "No information", "Confusion"], correct: 0, topic: "Listening Skills" },
+        { question: "What is inference in listening?", options: ["Understanding implied meaning", "Hearing only", "Ignoring meaning", "Guessing randomly"], correct: 0, topic: "Listening Skills" },
+        { question: "What helps with note-taking during listening?", options: ["Main ideas and key points", "Every word", "No notes", "Random notes"], correct: 0, topic: "Listening Skills" },
+        { question: "What is a listening strategy?", options: ["Method to improve comprehension", "Random action", "No strategy", "Guessing"], correct: 0, topic: "Listening Skills" },
+        { question: "What is gist in listening?", options: ["Main idea", "Every detail", "No idea", "Confusion"], correct: 0, topic: "Listening Skills" },
+        { question: "What helps with different accents?", options: ["Exposure and practice", "Avoiding accents", "Ignoring accents", "Speaking only one accent"], correct: 0, topic: "Listening Skills" },
+        { question: "What is specific information in listening?", options: ["Particular details needed", "General information", "No information", "All information"], correct: 0, topic: "Listening Skills" },
+        { question: "What is summary in listening?", options: ["Brief overview", "Full transcript", "No summary", "Random notes"], correct: 0, topic: "Listening Skills" },
+        { question: "What helps with fast speech?", options: ["Practice and focus", "Giving up", "Speaking fast", "Ignoring"], correct: 0, topic: "Listening Skills" },
+        { question: "What is prediction in listening?", options: ["Anticipating what comes next", "Random guessing", "No prediction", "Confusion"], correct: 0, topic: "Listening Skills" },
+        { question: "What is attitude in listening?", options: ["Speaker's feelings or opinion", "Random emotion", "No emotion", "Confusion"], correct: 0, topic: "Listening Skills" },
+        { question: "What is repetition in listening?", options: ["Hearing again for clarity", "Hearing once", "No repetition", "Ignoring"], correct: 0, topic: "Listening Skills" },
+
+        // Pronunciation - 15 preguntas
+        { question: "What is a phoneme?", options: ["Smallest sound unit", "Letter", "Word", "Sentence"], correct: 0, topic: "Pronunciation" },
+        { question: "What is stress in pronunciation?", options: ["Emphasis on syllable", "Loud volume", "Fast speed", "Quiet voice"], correct: 0, topic: "Pronunciation" },
+        { question: "What is intonation?", options: ["Rise and fall of pitch", "Volume only", "Speed only", "Accent only"], correct: 0, topic: "Pronunciation" },
+        { question: "What is a schwa sound?", options: ["Weak unstressed sound", "Strong sound", "Loud sound", "Silent sound"], correct: 0, topic: "Pronunciation" },
+        { question: "What is a diphthong?", options: ["Two vowel sounds together", "One vowel sound", "Consonant sound", "Silent sound"], correct: 0, topic: "Pronunciation" },
+        { question: "What helps with pronunciation?", options: ["Listening and practice", "Reading silently", "Writing only", "Memorizing only"], correct: 0, topic: "Pronunciation" },
+        { question: "What is a minimal pair?", options: ["Words differing by one sound", "Same words", "Similar words", "Different words"], correct: 0, topic: "Pronunciation" },
+        { question: "What is linking in pronunciation?", options: ["Connecting sounds between words", "Separating words", "Silent words", "Loud words"], correct: 0, topic: "Pronunciation" },
+        { question: "What is assimilation?", options: ["Sound becoming like neighbor", "Sound staying same", "Sound disappearing", "Sound appearing"], correct: 0, topic: "Pronunciation" },
+        { question: "What is elision?", options: ["Omitting sounds", "Adding sounds", "Changing sounds", "Keeping sounds"], correct: 0, topic: "Pronunciation" },
+        { question: "What is word stress?", options: ["Emphasis on syllable in word", "Sentence stress", "No stress", "Random stress"], correct: 0, topic: "Pronunciation" },
+        { question: "What is sentence stress?", options: ["Emphasis on important words", "Word stress", "No stress", "Random emphasis"], correct: 0, topic: "Pronunciation" },
+        { question: "What is rhythm in English?", options: ["Pattern of stressed and unstressed", "Music only", "Speed only", "Volume only"], correct: 0, topic: "Pronunciation" },
+        { question: "What is a voiced sound?", options: ["Sound with vocal cord vibration", "Silent sound", "Whispered sound", "No sound"], correct: 0, topic: "Pronunciation" },
+        { question: "What is an unvoiced sound?", options: ["Sound without vocal cord vibration", "Loud sound", "Vibrating sound", "Musical sound"], correct: 0, topic: "Pronunciation" }
     ]
 };
 
@@ -2810,6 +2969,271 @@ const studyMaterials = {
                 ]
             }
         ]
+    },
+    ingles: {
+        title: "English - High School Level",
+        categories: [
+            {
+                name: "Grammar",
+                introduction: "Grammar is the set of rules that govern how words are used to form sentences. It includes parts of speech, sentence structure, and verb tenses.",
+                examples: "Present simple: She works every day. Past simple: She worked yesterday. Present continuous: She is working now. Present perfect: She has worked here for 5 years. Articles: a/an (indefinite), the (definite). Prepositions: in, on, at, under, over.",
+                definitions: [
+                    { term: "Noun", definition: "Person, place, thing, or idea (cat, London, happiness)" },
+                    { term: "Verb", definition: "Action or state (run, be, think)" },
+                    { term: "Adjective", definition: "Describes noun (beautiful, large, red)" },
+                    { term: "Adverb", definition: "Modifies verb, adjective, or adverb (quickly, very)" },
+                    { term: "Pronoun", definition: "Replaces noun (he, she, it, they)" },
+                    { term: "Preposition", definition: "Shows relationship (in, on, at, to, for)" },
+                    { term: "Conjunction", definition: "Connects words/clauses (and, but, because)" },
+                    { term: "Article", definition: "Determines noun (a, an, the)" },
+                    { term: "Subject-verb agreement", definition: "Subject and verb must match in number (singular/plural)" }
+                ],
+                quiz: [
+                    { question: "What is the past tense of 'eat'?", options: ["ate", "eated", "eaten", "eating"], correct: 0 },
+                    { question: "Which sentence is correct?", options: ["She goes to school", "She go to school", "She going to school", "She gone to school"], correct: 0 },
+                    { question: "What is the plural of 'child'?", options: ["children", "childs", "childes", "childrens"], correct: 0 },
+                    { question: "Which article should be used with 'university'?", options: ["a", "an", "the", "no article"], correct: 0 },
+                    { question: "What is the comparative form of 'good'?", options: ["better", "gooder", "more good", "best"], correct: 0 },
+                    { question: "Which sentence uses the present perfect correctly?", options: ["I have visited Paris", "I visited Paris", "I am visiting Paris", "I will visit Paris"], correct: 0 },
+                    { question: "What is the opposite of 'always'?", options: ["never", "sometimes", "often", "usually"], correct: 0 },
+                    { question: "Which word is a preposition?", options: ["under", "run", "happy", "quickly"], correct: 0 }
+                ]
+            },
+            {
+                name: "Vocabulary",
+                introduction: "Vocabulary is the set of words known and used by a person. Building vocabulary helps improve communication and comprehension.",
+                examples: "Synonyms: happy/joyful, big/large, smart/intelligent. Antonyms: happy/sad, big/small, smart/stupid. Context clues help understand new words. Prefixes: un- (not), re- (again). Suffixes: -ly (adverb), -tion (noun).",
+                definitions: [
+                    { term: "Synonym", definition: "Word with same meaning (happy/joyful)" },
+                    { term: "Antonym", definition: "Word with opposite meaning (happy/sad)" },
+                    { term: "Context clue", definition: "Information around word that helps meaning" },
+                    { term: "Prefix", definition: "Word part at beginning (un-, re-, pre-)" },
+                    { term: "Suffix", definition: "Word part at end (-ly, -tion, -ment)" },
+                    { term: "Root word", definition: "Base word (act in action, actor)" },
+                    { term: "Homophone", definition: "Words sounding same, different meaning (to/two/too)" },
+                    { term: "Homonym", definition: "Word with multiple meanings (bank: river/money)" },
+                    { term: "Collocation", definition: "Words that go together (make a mistake)" }
+                ],
+                quiz: [
+                    { question: "What does 'abundant' mean?", options: ["Plentiful", "Scarce", "Small", "Empty"], correct: 0 },
+                    { question: "What is a synonym for 'happy'?", options: ["Joyful", "Sad", "Angry", "Tired"], correct: 0 },
+                    { question: "What does 'benevolent' mean?", options: ["Kind", "Cruel", "Mean", "Harsh"], correct: 0 },
+                    { question: "What is the antonym of 'ancient'?", options: ["Modern", "Old", "Historic", "Traditional"], correct: 0 },
+                    { question: "What does 'diligent' mean?", options: ["Hardworking", "Lazy", "Careless", "Slow"], correct: 0 },
+                    { question: "What is a synonym for 'beautiful'?", options: ["Gorgeous", "Ugly", "Plain", "Dull"], correct: 0 },
+                    { question: "What does 'eloquent' mean?", options: ["Fluent", "Quiet", "Shy", "Silent"], correct: 0 },
+                    { question: "What is the antonym of 'generous'?", options: ["Stingy", "Kind", "Giving", "Charitable"], correct: 0 }
+                ]
+            },
+            {
+                name: "Reading Comprehension",
+                introduction: "Reading comprehension is the ability to understand, interpret, and extract meaning from written text. It involves identifying main ideas, details, and making inferences.",
+                examples: "Main idea: central theme of text. Supporting details: information that supports main idea. Inference: conclusion based on evidence. Skimming: reading quickly for main idea. Scanning: reading for specific information.",
+                definitions: [
+                    { term: "Main idea", definition: "Central theme or most important point" },
+                    { term: "Supporting details", definition: "Information that explains main idea" },
+                    { term: "Inference", definition: "Conclusion based on evidence" },
+                    { term: "Context", definition: "Words/sentences surrounding unfamiliar word" },
+                    { term: "Skimming", definition: "Reading quickly for main idea" },
+                    { term: "Scanning", definition: "Reading for specific information" },
+                    { term: "Topic sentence", definition: "Sentence that states main idea" },
+                    { term: "Conclusion", definition: "Ending that summarizes main points" },
+                    { term: "Cause and effect", definition: "Relationship between events" }
+                ],
+                quiz: [
+                    { question: "READING: 'The sun rises in the east and sets in the west. It provides light and warmth to Earth.' Where does the sun rise?", options: ["East", "West", "North", "South"], correct: 0 },
+                    { question: "READING: 'Water covers about 71% of Earth's surface. It is essential for all living things.' What percentage of Earth is covered by water?", options: ["71%", "50%", "80%", "60%"], correct: 0 },
+                    { question: "READING: 'Photosynthesis is the process by which plants make food using sunlight.' What do plants use in photosynthesis?", options: ["Sunlight", "Moonlight", "Artificial light", "No light"], correct: 0 },
+                    { question: "READING: 'The heart pumps blood throughout the body. It beats about 100,000 times per day.' How many times does the heart beat per day?", options: ["100,000", "10,000", "1,000", "1,000,000"], correct: 0 },
+                    { question: "READING: 'Mount Everest is the highest mountain in the world. It is 8,848 meters tall.' How tall is Mount Everest?", options: ["8,848 meters", "8,000 meters", "9,000 meters", "8,500 meters"], correct: 0 },
+                    { question: "READING: 'The Great Wall of China is over 13,000 miles long. It was built to protect China from invaders.' Why was the Great Wall built?", options: ["Protection", "Tourism", "Exercise", "Art"], correct: 0 },
+                    { question: "READING: 'Dolphins are highly intelligent marine mammals. They can communicate with each other using sounds.' What are dolphins?", options: ["Marine mammals", "Fish", "Birds", "Reptiles"], correct: 0 },
+                    { question: "READING: 'The Amazon rainforest produces about 20% of the world's oxygen. It is home to millions of species.' What does the Amazon produce?", options: ["Oxygen", "Carbon dioxide", "Nitrogen", "Hydrogen"], correct: 0 }
+                ]
+            },
+            {
+                name: "Listening Skills",
+                introduction: "Listening skills involve understanding spoken language. This includes identifying main ideas, details, and understanding speaker's attitude.",
+                examples: "Active listening: focusing completely on speaker. Note-taking: writing key points. Context: situation of conversation. Tone: speaker's attitude. Inference: understanding implied meaning.",
+                definitions: [
+                    { term: "Active listening", definition: "Focusing completely on speaker" },
+                    { term: "Note-taking", definition: "Writing key points while listening" },
+                    { term: "Context", definition: "Situation or background of conversation" },
+                    { term: "Tone", definition: "Speaker's attitude or emotion" },
+                    { term: "Inference", definition: "Understanding implied meaning" },
+                    { term: "Key word", definition: "Important word for understanding" },
+                    { term: "Gist", definition: "Main idea or general meaning" },
+                    { term: "Specific information", definition: "Particular details needed" },
+                    { term: "Summary", definition: "Brief overview of main points" }
+                ],
+                quiz: [
+                    { question: "What is active listening?", options: ["Focusing completely on speaker", "Hearing without attention", "Multitasking", "Daydreaming"], correct: 0 },
+                    { question: "What helps with listening comprehension?", options: ["Focus and practice", "Distraction", "Talking", "Sleeping"], correct: 0 },
+                    { question: "What is a key word in listening?", options: ["Important word for meaning", "Unimportant word", "Filler word", "Grammar word"], correct: 0 },
+                    { question: "What is context in listening?", options: ["Situation or background", "Random information", "No information", "Confusion"], correct: 0 },
+                    { question: "What is inference in listening?", options: ["Understanding implied meaning", "Hearing only", "Ignoring meaning", "Guessing randomly"], correct: 0 },
+                    { question: "What helps with note-taking during listening?", options: ["Main ideas and key points", "Every word", "No notes", "Random notes"], correct: 0 },
+                    { question: "What is a listening strategy?", options: ["Method to improve comprehension", "Random action", "No strategy", "Guessing"], correct: 0 },
+                    { question: "What is gist in listening?", options: ["Main idea", "Every detail", "No idea", "Confusion"], correct: 0 }
+                ]
+            },
+            {
+                name: "Writing",
+                introduction: "Writing is the process of expressing ideas through written words. It involves organizing thoughts, using correct grammar, and structuring sentences and paragraphs.",
+                examples: "Topic sentence: introduces main idea. Supporting sentences: provide details. Concluding sentence: summarizes. Paragraph: group of related sentences. Essay: multiple paragraphs on one topic.",
+                definitions: [
+                    { term: "Topic sentence", definition: "Sentence that introduces main idea" },
+                    { term: "Supporting sentence", definition: "Sentence that provides details" },
+                    { term: "Concluding sentence", definition: "Sentence that summarizes paragraph" },
+                    { term: "Paragraph", definition: "Group of related sentences" },
+                    { term: "Essay", definition: "Multiple paragraphs on one topic" },
+                    { term: "Thesis statement", definition: "Main argument of essay" },
+                    { term: "Transition word", definition: "Word connecting ideas (however, therefore)" },
+                    { term: "Coherence", definition: "Logical flow of ideas" },
+                    { term: "Unity", definition: "All sentences support main idea" }
+                ],
+                quiz: [
+                    { question: "Which is a complete sentence?", options: ["The sun shines brightly.", "Shines brightly.", "Because the sun.", "The sun."], correct: 0 },
+                    { question: "What should you use to connect two independent clauses?", options: ["Semicolon or conjunction", "Comma only", "Period only", "No punctuation"], correct: 0 },
+                    { question: "Which is a compound sentence?", options: ["I like coffee, and she likes tea.", "I like coffee.", "Because I like coffee.", "I like coffee she likes tea."], correct: 0 },
+                    { question: "What is the purpose of a topic sentence?", options: ["Introduce main idea", "Conclude paragraph", "Add details", "Ask question"], correct: 0 },
+                    { question: "Which word is a transition word?", options: ["However", "Cat", "Run", "Beautiful"], correct: 0 },
+                    { question: "What should a conclusion do?", options: ["Summarize main points", "Introduce new ideas", "Ask questions", "Start new topic"], correct: 0 },
+                    { question: "Which is a complex sentence?", options: ["Because it rained, we stayed home.", "It rained and we stayed home.", "It rained.", "We stayed home."], correct: 0 },
+                    { question: "What is paragraph unity?", options: ["All sentences support main idea", "Many different ideas", "No main idea", "Random sentences"], correct: 0 }
+                ]
+            },
+            {
+                name: "Speaking",
+                introduction: "Speaking is the act of expressing thoughts orally. It involves pronunciation, fluency, and effective communication.",
+                examples: "Pronunciation: correct sound production. Fluency: speaking smoothly and naturally. Intonation: rise and fall of voice. Stress: emphasis on words. Body language: non-verbal communication.",
+                definitions: [
+                    { term: "Pronunciation", definition: "Correct production of sounds" },
+                    { term: "Fluency", definition: "Speaking smoothly and naturally" },
+                    { term: "Intonation", definition: "Rise and fall of voice" },
+                    { term: "Stress", definition: "Emphasis on certain words" },
+                    { term: "Body language", definition: "Non-verbal communication" },
+                    { term: "Eye contact", definition: "Looking at listener" },
+                    { term: "Filler word", definition: "Um, uh, like (avoid overuse)" },
+                    { term: "Paraphrasing", definition: "Restating in different words" },
+                    { term: "Active listening", definition: "Paying attention to speaker" }
+                ],
+                quiz: [
+                    { question: "What is important for clear speaking?", options: ["Pronunciation and clarity", "Speaking fast", "Speaking quietly", "Mumbling"], correct: 0 },
+                    { question: "What is intonation?", options: ["Rise and fall of voice", "Volume", "Speed", "Accent"], correct: 0 },
+                    { question: "What helps with fluency?", options: ["Practice regularly", "Study grammar only", "Memorize words", "Read silently"], correct: 0 },
+                    { question: "What is a filler word?", options: ["Um, uh, like", "Important words", "Content words", "Formal words"], correct: 0 },
+                    { question: "What is stress in speaking?", options: ["Emphasis on certain words", "Being nervous", "Speaking loudly", "Speaking softly"], correct: 0 },
+                    { question: "What is body language?", options: ["Non-verbal communication", "Speaking loudly", "Grammar", "Vocabulary"], correct: 0 },
+                    { question: "What is eye contact important for?", options: ["Connection with listener", "Looking away", "Closing eyes", "Sleeping"], correct: 0 },
+                    { question: "What is a conversation starter?", options: ["Opening question", "Closing statement", "Argument", "Complaint"], correct: 0 }
+                ]
+            },
+            {
+                name: "Verb Tenses",
+                introduction: "Verb tenses indicate when an action happens. English has 12 main tenses divided into past, present, and future.",
+                examples: "Present simple: I work. Present continuous: I am working. Present perfect: I have worked. Past simple: I worked. Past continuous: I was working. Past perfect: I had worked. Future simple: I will work. Future continuous: I will be working.",
+                definitions: [
+                    { term: "Present simple", definition: "Habits, facts, permanent situations" },
+                    { term: "Present continuous", definition: "Actions happening now" },
+                    { term: "Present perfect", definition: "Past action with present relevance" },
+                    { term: "Past simple", definition: "Completed past action" },
+                    { term: "Past continuous", definition: "Action in progress in past" },
+                    { term: "Past perfect", definition: "Action before another past action" },
+                    { term: "Future simple", definition: "Prediction or decision" },
+                    { term: "Future continuous", definition: "Action in progress in future" },
+                    { term: "Future perfect", definition: "Action completed by future time" }
+                ],
+                quiz: [
+                    { question: "What is the present continuous of 'run'?", options: ["running", "runs", "ran", "run"], correct: 0 },
+                    { question: "Which sentence is in past simple?", options: ["I visited my grandmother", "I visit my grandmother", "I am visiting my grandmother", "I will visit my grandmother"], correct: 0 },
+                    { question: "What is the future simple of 'go'?", options: ["will go", "goes", "went", "going"], correct: 0 },
+                    { question: "Which sentence uses present perfect?", options: ["I have finished my homework", "I finished my homework", "I am finishing my homework", "I finish my homework"], correct: 0 },
+                    { question: "What is the past continuous of 'study'?", options: ["was/were studying", "studied", "studies", "study"], correct: 0 },
+                    { question: "Which sentence is in future continuous?", options: ["I will be working tomorrow", "I work tomorrow", "I worked tomorrow", "I am working tomorrow"], correct: 0 },
+                    { question: "What is the past perfect of 'eat'?", options: ["had eaten", "ate", "have eaten", "was eating"], correct: 0 },
+                    { question: "Which sentence uses present simple correctly?", options: ["She works every day", "She working every day", "She worked every day", "She will work every day"], correct: 0 }
+                ]
+            },
+            {
+                name: "Prepositions",
+                introduction: "Prepositions show the relationship between nouns/pronouns and other words in a sentence. They indicate time, place, direction, и manner.",
+                examples: "Time: at 5 PM, in 1990, on Monday. Place: in the box, on the table, at the door. Direction: to school, from home, into the room. Manner: with care, by bus, without help.",
+                definitions: [
+                    { term: "Preposition", definition: "Word showing relationship (in, on, at, to)" },
+                    { term: "Time preposition", definition: "at, on, in for time" },
+                    { term: "Place preposition", definition: "in, on, at for location" },
+                    { term: "Direction preposition", definition: "to, from, into, out of" },
+                    { term: "Manner preposition", definition: "with, by, without" },
+                    { term: "Compound preposition", definition: "in front of, next to, between" },
+                    { term: "Prepositional phrase", definition: "Preposition + object (in the house)" },
+                    { term: "Object of preposition", definition: "Noun following preposition" },
+                    { term: "Preposition of movement", definition: "across, through, along, around" }
+                ],
+                quiz: [
+                    { question: "The cat is ___ the table.", options: ["under", "at", "on", "in"], correct: 0 },
+                    { question: "I will meet you ___ 5 PM.", options: ["at", "on", "in", "to"], correct: 0 },
+                    { question: "The book is ___ the shelf.", options: ["on", "at", "in", "to"], correct: 0 },
+                    { question: "She lives ___ New York.", options: ["in", "at", "on", "to"], correct: 0 },
+                    { question: "We arrived ___ the station.", options: ["at", "on", "in", "to"], correct: 0 },
+                    { question: "The picture is ___ the wall.", options: ["on", "at", "in", "to"], correct: 0 },
+                    { question: "I was born ___ 1990.", options: ["in", "on", "at", "to"], correct: 0 },
+                    { question: "The plane flew ___ the clouds.", options: ["above", "at", "on", "in"], correct: 0 }
+                ]
+            },
+            {
+                name: "Pronunciation",
+                introduction: "Pronunciation is how words are spoken correctly. It includes sounds, stress, intonation, and rhythm.",
+                examples: "Phoneme: smallest sound unit. Stress: emphasis on syllable. Intonation: rise and fall of voice. Schwa: weak unstressed sound. Diphthong: two vowel sounds together.",
+                definitions: [
+                    { term: "Phoneme", definition: "Smallest sound unit" },
+                    { term: "Stress", definition: "Emphasis on syllable" },
+                    { term: "Intonation", definition: "Rise and fall of pitch" },
+                    { term: "Schwa", definition: "Weak unstressed sound" },
+                    { term: "Diphthong", definition: "Two vowel sounds together" },
+                    { term: "Minimal pair", definition: "Words differing by one sound" },
+                    { term: "Linking", definition: "Connecting sounds between words" },
+                    { term: "Assimilation", definition: "Sound becoming like neighbor" },
+                    { term: "Elision", definition: "Omitting sounds" }
+                ],
+                quiz: [
+                    { question: "What is a phoneme?", options: ["Smallest sound unit", "Letter", "Word", "Sentence"], correct: 0 },
+                    { question: "What is stress in pronunciation?", definition: ["Emphasis on syllable", "Loud volume", "Fast speed", "Quiet voice"], correct: 0 },
+                    { question: "What is intonation?", options: ["Rise and fall of pitch", "Volume only", "Speed only", "Accent only"], correct: 0 },
+                    { question: "What is a schwa sound?", options: ["Weak unstressed sound", "Strong sound", "Loud sound", "Silent sound"], correct: 0 },
+                    { question: "What is a diphthong?", options: ["Two vowel sounds together", "One vowel sound", "Consonant sound", "Silent sound"], correct: 0 },
+                    { question: "What helps with pronunciation?", options: ["Listening and practice", "Reading silently", "Writing only", "Memorizing only"], correct: 0 },
+                    { question: "What is a minimal pair?", options: ["Words differing by one sound", "Same words", "Similar words", "Different words"], correct: 0 },
+                    { question: "What is linking in pronunciation?", options: ["Connecting sounds between words", "Separating words", "Silent words", "Loud words"], correct: 0 }
+                ]
+            },
+            {
+                name: "Idioms and Phrases",
+                introduction: "Idioms are expressions whose meaning cannot be understood from the individual words. They are culturally specific and add color to language.",
+                examples: "Break a leg: good luck. Piece of cake: very easy. Under the weather: sick. Hit the sack: go to sleep. Cost an arm and a leg: very expensive. Once in a blue moon: rarely.",
+                definitions: [
+                    { term: "Idiom", definition: "Expression with meaning different from literal words" },
+                    { term: "Phrase", definition: "Group of words with specific meaning" },
+                    { term: "Figurative language", definition: "Non-literal meaning" },
+                    { term: "Literal meaning", definition: "Actual meaning of words" },
+                    { term: "Colloquialism", definition: "Informal expression" },
+                    { term: "Slang", definition: "Informal language used by groups" },
+                    { term: "Proverb", definition: "Traditional saying with wisdom" },
+                    { term: "Metaphor", definition: "Comparison without like/as" },
+                    { term: "Simile", definition: "Comparison with like/as" }
+                ],
+                quiz: [
+                    { question: "What does 'break a leg' mean?", options: ["Good luck", "Bad luck", "Break your leg", "Run fast"], correct: 0 },
+                    { question: "What does 'piece of cake' mean?", options: ["Very easy", "Very hard", "Delicious", "Sweet"], correct: 0 },
+                    { question: "What does 'under the weather' mean?", options: ["Sick", "Outside", "Happy", "Angry"], correct: 0 },
+                    { question: "What does 'hit the sack' mean?", options: ["Go to sleep", "Hit something", "Wake up", "Exercise"], correct: 0 },
+                    { question: "What does 'cost an arm and a leg' mean?", options: ["Very expensive", "Very cheap", "Free", "Painful"], correct: 0 },
+                    { question: "What does 'once in a blue moon' mean?", options: ["Rarely", "Often", "Every day", "Never"], correct: 0 },
+                    { question: "What does 'spill the beans' mean?", options: ["Reveal a secret", "Drop food", "Cook beans", "Eat beans"], correct: 0 },
+                    { question: "What does 'cold feet' mean?", options: ["Nervous", "Cold temperature", "Happy", "Brave"], correct: 0 }
+                ]
+            }
+        ]
     }
 };
 
@@ -2820,7 +3244,8 @@ const subjectNames = {
     lectura: "LECTURA",
     ortografia: "ORTOGRAFÍA",
     espanol_castellano: "ESPAÑOL CASTELLANO",
-    espanol_espana: "ESPAÑOL DE ESPAÑA"
+    espanol_espana: "ESPAÑOL DE ESPAÑA",
+    ingles: "ENGLISH"
 };
 
 // Quiz state
@@ -3378,7 +3803,8 @@ async function showProfile() {
         lectura: 'LECTURA',
         ortografia: 'ORTOGRAFÍA',
         espanol_castellano: 'ESPAÑOL CASTELLANO',
-        espanol_espana: 'ESPAÑOL DE ESPAÑA'
+        espanol_espana: 'ESPAÑOL DE ESPAÑA',
+        ingles: 'ENGLISH'
     };
     
     for (const subject in subjectAverages) {
